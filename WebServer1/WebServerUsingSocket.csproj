@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RootNamespace>WebServerUsingSocket</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="FileReader.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FirstWebApp">
+      <HintPath>..\..\FirstWebApp\FirstWebApp\bin\Release\netcoreapp2.2\FirstWebApp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  
+
+</Project>

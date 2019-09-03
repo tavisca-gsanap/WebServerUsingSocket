@@ -9,7 +9,6 @@ namespace WebServerUsingSocket
         public NetworkStream OutputStream { get; }
         public string ContentType { get; set; }
         public int StatusCode { get; set; }
-        public long ContentLength64{get;set;}
 
         public HTTPListenerResponse(NetworkStream stream, HTTPListenerRequest request)
         {

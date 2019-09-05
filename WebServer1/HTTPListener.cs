@@ -50,7 +50,7 @@ namespace WebServerUsingSocket
             }
             
             Debug.WriteLine("Request: \n" + Message+"\n end");
-            HTTPListenerRequest hTTPRequest = HTTpRequestParser.GetHTTPRequest(Message);
+            HTTPListenerRequest hTTPRequest = HTTPRequestParser.GetHTTPRequest(Message);
             HTTPListenerResponse response = new HTTPListenerResponse(networkStream,hTTPRequest);
             if (hTTPRequest == null)
             {
@@ -60,7 +60,7 @@ namespace WebServerUsingSocket
         }
     }
 
-    internal class HTTpRequestParser
+    internal class HTTPRequestParser
     {
         public static HTTPListenerRequest GetHTTPRequest(String request)
         {
@@ -71,6 +71,8 @@ namespace WebServerUsingSocket
             String url = tokens[1];
             String host = tokens[4];
             String referer = "";
+            string body = "";
+            Debug.WriteLine(request);
             for (int index = 0; index < tokens.Length; index++)
             {
                 if (tokens[index] == "Referer:")
@@ -81,7 +83,7 @@ namespace WebServerUsingSocket
             }
             Console.WriteLine(String.Format("type : {0} url : {1} @ host : {2} \nReferer: {3}", type, url, host, referer));
 
-            return new HTTPListenerRequest(new Uri("http://"+host+url),type);
+            return new HTTPListenerRequest(new Uri("http://"+host+url),type,body);
         }
     }
 }

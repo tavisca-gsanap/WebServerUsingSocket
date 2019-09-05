@@ -9,11 +9,14 @@ namespace WebServerUsingSocket
         public string HttpMethod { get; }
         public string ContentType { get; }
 
-        public HTTPListenerRequest(Uri uri,string httpMethod)
+        public string Content { get; }
+
+        public HTTPListenerRequest(Uri uri,string httpMethod,string content)
         {
             Url = uri;
             HttpMethod = httpMethod;
             ContentType = null;
+            Content = content;
         }
     }
 }
